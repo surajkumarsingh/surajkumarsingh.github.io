@@ -4,7 +4,7 @@ A simple collection of classic games implemented using JavaScript, HTML5 Canvas,
 
 ## Getting Started
 
-1. Open `main.html` in a web browser to access the game selection screen.
+1. Open `index.html` in a web browser to access the game selection screen.
 2. Click on any game card to start playing that game.
 3. Use the "Back to Menu" button in each game to return to the selection screen.
 
@@ -141,16 +141,18 @@ The classic game of X's and O's where you try to get three marks in a row.
 ```
 game/
 │
-├── main.html              # Main landing page
+├── index.html              # Main landing page
 │
 ├── assets/                # Shared assets
 │   ├── css/               # Shared CSS files
 │   │   └── main.css       # Styles for main landing page
 │   │   └── ads.css        # Styles for advertisements
+│   │   └── responsive.css # Responsive design styles
 │   │
 │   ├── js/                # Shared JavaScript files
 │   │   └── meta-tags.js   # SEO meta tag management
 │   │   └── adsense.js     # AdSense integration
+│   │   └── mobile-support.js # Mobile support functionality
 │   │
 │   └── images/            # Shared image assets
 │

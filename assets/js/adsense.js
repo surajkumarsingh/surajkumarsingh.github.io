@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const currentPath = window.location.pathname;
         
         // Don't show ads on the main menu to keep it clean
-        if (currentPath.includes('main.html')) {
+        if (currentPath.includes('index.html')) {
             insertFooterAd();
             return;
         }

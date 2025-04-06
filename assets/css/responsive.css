@@ -1,0 +1,160 @@
+/* 
+ * Shared responsive styles for all games
+ * Include this file in all game HTML files after the game's main CSS
+ */
+
+/* General responsive adjustments */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .game-container {
+        width: 100%;
+        max-width: none;
+        padding: 15px;
+        border-radius: 10px;
+    }
+    
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    button {
+        padding: 8px 12px;
+    }
+    
+    .home-button {
+        position: relative;
+        display: block;
+        margin: 10px auto 0;
+        width: fit-content;
+        bottom: auto;
+        left: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 0;
+    }
+    
+    .game-container {
+        border-radius: 0;
+        min-height: 100vh;
+        padding: 10px;
+    }
+    
+    header h1 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+    
+    .score-display {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .settings {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+    
+    .settings > div {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+    
+    .game-controls {
+        gap: 10px;
+    }
+    
+    button {
+        padding: 7px 10px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Game-specific adjustments */
+
+/* Flappy Bird */
+@media (max-width: 480px) {
+    #flappy-canvas {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* Snake Game */
+@media (max-width: 480px) {
+    #snake-canvas {
+        max-width: 100%;
+    }
+    
+    .controls-mobile {
+        display: flex;
+    }
+}
+
+/* Pong Game */
+@media (max-width: 480px) {
+    #pong-canvas {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .mobile-controls {
+        display: flex;
+    }
+}
+
+/* Memory Game */
+@media (max-width: 480px) {
+    .memory-board {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+    
+    .card {
+        height: 60px;
+    }
+    
+    .card.flipped .card-front {
+        font-size: 1.5rem;
+    }
+}
+
+/* Tic Tac Toe */
+@media (max-width: 480px) {
+    .game-board {
+        gap: 5px;
+        max-width: 280px;
+    }
+    
+    .cell {
+        font-size: 2.5rem;
+    }
+    
+    .status-message {
+        font-size: 1.2rem;
+    }
+}
+
+/* Coin Toss */
+@media (max-width: 480px) {
+    .coin {
+        width: 130px;
+        height: 130px;
+    }
+    
+    .choice-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .choice-buttons button {
+        width: 100%;
+    }
+} 

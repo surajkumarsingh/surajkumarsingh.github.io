@@ -1,0 +1,384 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1e272e;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+.game-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    background-color: #2d3436;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    padding: 25px;
+    overflow: hidden;
+    color: white;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin-bottom: 15px;
+    font-size: 2rem;
+    color: #dfe6e9;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.score-display {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.player-x {
+    color: #00cec9;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.player-o {
+    color: #fd79a8;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.ties {
+    color: #ffeaa7;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+    margin: 0 auto 20px;
+    max-width: 350px;
+    aspect-ratio: 1/1;
+}
+
+.cell {
+    background-color: #636e72;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-weight: bold;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.cell:hover {
+    background-color: #74b9ff;
+}
+
+.cell.x {
+    color: #00cec9;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(0, 206, 201, 0.5);
+}
+
+.cell.o {
+    color: #fd79a8;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(253, 121, 168, 0.5);
+}
+
+/* X and O icons with custom styling - commented out since we're using text now
+.cell.x::before, 
+.cell.x::after {
+    content: '';
+    position: absolute;
+    width: 15%;
+    height: 80%;
+    background-color: currentColor;
+    border-radius: 5px;
+}
+
+.cell.x::before {
+    transform: rotate(45deg);
+}
+
+.cell.x::after {
+    transform: rotate(-45deg);
+}
+
+.cell.o::before {
+    content: '';
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    border: 10px solid currentColor;
+    border-radius: 50%;
+}
+*/
+
+.cell.win {
+    background-color: rgba(39, 174, 96, 0.5);
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(39, 174, 96, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(39, 174, 96, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(39, 174, 96, 0);
+    }
+}
+
+.status-message {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    min-height: 2rem;
+    color: #dfe6e9;
+    font-weight: bold;
+}
+
+.status-message.x-turn {
+    color: #00cec9;
+}
+
+.status-message.o-turn {
+    color: #fd79a8;
+}
+
+.status-message.win {
+    color: #00b894;
+}
+
+.status-message.draw {
+    color: #ffeaa7;
+}
+
+.game-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.game-mode {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+.game-mode label {
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s;
+}
+
+.game-mode label:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.game-mode input[type="radio"] {
+    margin-right: 5px;
+}
+
+button {
+    background-color: #0984e3;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #74b9ff;
+    transform: translateY(-2px);
+}
+
+#reset-score-btn {
+    background-color: #d63031;
+}
+
+#reset-score-btn:hover {
+    background-color: #ff7675;
+}
+
+.settings {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.settings > div {
+    margin-bottom: 10px;
+}
+
+.settings label {
+    margin-right: 10px;
+}
+
+.settings select {
+    background-color: #636e72;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.difficulty {
+    display: none;
+}
+
+.difficulty.active {
+    display: block;
+}
+
+.home-button {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+    z-index: 20;
+}
+
+.home-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 500px) {
+    .game-container {
+        padding: 15px;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        overflow-y: auto;
+    }
+    
+    header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .game-board {
+        gap: 6px;
+        max-width: 280px;
+    }
+    
+    .cell {
+        font-size: 2.5rem;
+        /* Larger touch target for mobile */
+        min-height: 70px;
+    }
+    
+    .score-display {
+        flex-direction: row;
+        gap: 10px;
+        padding: 8px;
+    }
+    
+    .score-display div {
+        font-size: 1rem;
+    }
+    
+    .status-message {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+    
+    .game-mode {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .game-mode label {
+        margin-bottom: 5px;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .settings {
+        flex-direction: column;
+        padding: 10px;
+    }
+    
+    .settings > div {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    
+    .settings select {
+        width: 50%;
+    }
+    
+    .home-button {
+        position: static;
+        display: block;
+        width: 100%;
+        margin-top: 20px;
+        text-align: center;
+    }
+    
+    button {
+        padding: 12px;
+        width: 100%;
+        margin-bottom: 8px;
+        /* Make buttons more touch-friendly */
+        font-size: 1rem;
+    }
+} 
+
+/* Add tap highlight color for better mobile experience */
+@media (max-width: 768px) {
+    .cell:active {
+        background-color: #74b9ff;
+    }
+    
+    button:active {
+        background-color: #0984e3 !important;
+    }
+    
+    #reset-score-btn:active {
+        background-color: #d63031 !important;
+    }
+} 

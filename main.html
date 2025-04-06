@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>JavaScript Game Collection - Classic Games Online</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Play classic games online for free including Flappy Bird, Snake, Pong, Memory Cards, Tic Tac Toe, and Coin Toss. No downloads required!">
+    <meta name="keywords" content="javascript games, online games, free games, classic games, web games, browser games, tic tac toe">
+    <meta name="author" content="Game Collection Developer">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="JavaScript Game Collection - Classic Games Online">
+    <meta property="og:description" content="Play classic games online for free including Flappy Bird, Snake, Pong, Memory Cards, Tic Tac Toe, and Coin Toss. No downloads required!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.yourgamecollection.com/main.html">
+    <meta property="og:image" content="https://www.yourgamecollection.com/assets/images/game-collection.jpg">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="JavaScript Game Collection - Classic Games Online">
+    <meta name="twitter:description" content="Play classic games online for free including Flappy Bird, Snake, Pong, Memory Cards, Tic Tac Toe, and Coin Toss. No downloads required!">
+    <meta name="twitter:image" content="https://www.yourgamecollection.com/assets/images/game-collection.jpg">
+
+    <!-- Canonical Link -->
+    <link rel="canonical" href="https://www.yourgamecollection.com/main.html">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/ads.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    
+    <!-- JavaScript for SEO, AdSense, and Mobile Support -->
+    <script src="assets/js/meta-tags.js"></script>
+    <script src="assets/js/adsense.js"></script>
+    <script src="assets/js/mobile-support.js"></script>
+    
+    <style>
+        .site-footer {
+            margin-top: 40px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        .site-footer a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            padding: 5px 10px;
+            transition: color 0.3s;
+        }
+        
+        .site-footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>JavaScript Game Collection</h1>
+            <p>Select a game to play</p>
+        </header>
+        
+        <div class="games-grid">
+            <div class="game-card" onclick="location.href='games/flappy-bird/index.html'">
+                <div class="game-icon flappy-bird">
+                    <div class="bird"></div>
+                    <div class="pipe"></div>
+                </div>
+                <h2>Flappy Bird</h2>
+                <p>Navigate a bird through obstacles by tapping space or clicking.</p>
+            </div>
+            
+            <div class="game-card" onclick="location.href='games/snake/snake.html'">
+                <div class="game-icon snake-game">
+                    <div class="snake-head"></div>
+                    <div class="snake-body"></div>
+                    <div class="snake-food"></div>
+                </div>
+                <h2>Snake</h2>
+                <p>Control a snake to eat food and grow longer without hitting walls or yourself.</p>
+            </div>
+            
+            <div class="game-card" onclick="location.href='games/pong/pong.html'">
+                <div class="game-icon pong-game">
+                    <div class="paddle paddle-left"></div>
+                    <div class="ball"></div>
+                    <div class="paddle paddle-right"></div>
+                </div>
+                <h2>Pong</h2>
+                <p>Classic arcade game where you control a paddle to hit a ball past your opponent.</p>
+            </div>
+            
+            <div class="game-card" onclick="location.href='games/memory/memory.html'">
+                <div class="game-icon memory-game-icon">
+                    <div class="memory-card"></div>
+                    <div class="memory-card flipped"></div>
+                    <div class="memory-card"></div>
+                    <div class="memory-card matched"></div>
+                </div>
+                <h2>Memory Cards</h2>
+                <p>Test your memory by matching pairs of cards in the fewest moves possible.</p>
+            </div>
+            
+            <div class="game-card" onclick="location.href='games/coin-toss/coin-toss.html'">
+                <div class="game-icon coin-toss-game">
+                    <div class="coin-icon"></div>
+                </div>
+                <h2>Coin Toss</h2>
+                <p>Test your luck by guessing heads or tails and see if you can beat the odds.</p>
+            </div>
+            
+            <div class="game-card" onclick="location.href='games/tic-tac-toe/tic-tac-toe.html'">
+                <div class="game-icon tic-tac-toe-game">
+                    <div class="board-icon">
+                        <div class="cell-icon x-icon"></div>
+                        <div class="cell-icon"></div>
+                        <div class="cell-icon o-icon"></div>
+                        <div class="cell-icon"></div>
+                        <div class="cell-icon x-icon"></div>
+                        <div class="cell-icon"></div>
+                        <div class="cell-icon o-icon"></div>
+                        <div class="cell-icon"></div>
+                        <div class="cell-icon x-icon"></div>
+                    </div>
+                </div>
+                <h2>Tic Tac Toe</h2>
+                <p>Classic game of X's and O's. Play against AI or challenge a friend.</p>
+            </div>
+        </div>
+        
+        <footer class="site-footer">
+            <p>© 2025 JavaScript Game Collection. All rights reserved.</p>
+            <p>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="mailto:contact@yourgamecollection.com">Contact Us</a>
+            </p>
+        </footer>
+    </div>
+    
+    <!-- Schema.org structured data for rich results -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "JavaScript Game Collection",
+      "url": "https://www.yourgamecollection.com/",
+      "description": "Play classic games online for free including Flappy Bird, Snake, Pong, Memory Cards, Tic Tac Toe, and Coin Toss. No downloads required!",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.yourgamecollection.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+</body>
+</html> 

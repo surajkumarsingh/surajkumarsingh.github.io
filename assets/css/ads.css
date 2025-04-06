@@ -1,0 +1,76 @@
+/**
+ * Ad Container Styling 
+ * Ensures ads are displayed properly and responsively
+ */
+
+/* Common ad container styling */
+.ad-container {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 20px auto;
+    text-align: center;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.ad-label {
+    font-size: 0.7rem;
+    color: #999;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+/* Sidebar ad styling */
+.sidebar-ad {
+    width: 160px;
+    position: fixed;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    z-index: 5;
+}
+
+/* Between content ad styling */
+.between-content-ad {
+    max-width: 728px;
+    margin: 20px auto;
+}
+
+/* Footer ad styling */
+.footer-ad {
+    max-width: 728px;
+    margin: 20px auto;
+    padding: 15px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .sidebar-ad {
+        display: none; /* Hide sidebar ads on smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .ad-container {
+        padding: 5px;
+        margin: 15px auto;
+    }
+    
+    .between-content-ad,
+    .footer-ad {
+        max-width: 100%;
+    }
+}
+
+/* Hide ads when they're blocked */
+.ad-container:empty {
+    display: none;
+}
+
+/* Make sure ads don't break game layouts */
+.game-container {
+    position: relative;
+    z-index: 10;
+} 

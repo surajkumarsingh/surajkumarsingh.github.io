@@ -1,0 +1,491 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.container {
+    max-width: 900px;
+    width: 90%;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #ccc;
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+}
+
+.game-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.game-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.game-icon {
+    height: 120px;
+    margin: 0 auto 20px;
+    position: relative;
+    width: 120px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.game-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.game-card p {
+    color: #ccc;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* Flappy Bird icon styling */
+.flappy-bird {
+    background-color: #4EC0CA;
+}
+
+.flappy-bird .bird {
+    width: 30px;
+    height: 30px;
+    background-color: #FFD700;
+    border-radius: 50%;
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    animation: fly 2s infinite;
+}
+
+.flappy-bird .pipe {
+    width: 20px;
+    height: 80px;
+    background-color: #75C147;
+    position: absolute;
+    right: 20px;
+    bottom: 0;
+}
+
+.flappy-bird .pipe:before {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 10px;
+    background-color: #558B34;
+    top: 0;
+    left: -2.5px;
+}
+
+@keyframes fly {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Snake game icon styling */
+.snake-game {
+    background-color: #000;
+}
+
+.snake-head {
+    width: 20px;
+    height: 20px;
+    background-color: #4CAF50;
+    position: absolute;
+    border-radius: 3px;
+    top: 40px;
+    left: 30px;
+    animation: snake-move 4s infinite;
+}
+
+.snake-body {
+    width: 20px;
+    height: 20px;
+    background-color: #8BC34A;
+    position: absolute;
+    border-radius: 3px;
+    top: 40px;
+    left: 10px;
+    animation: snake-move 4s infinite 0.2s;
+}
+
+.snake-body:before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #8BC34A;
+    border-radius: 3px;
+    right: 20px;
+    animation: snake-move 4s infinite 0.4s;
+}
+
+.snake-food {
+    width: 16px;
+    height: 16px;
+    background-color: #FF5252;
+    border-radius: 50%;
+    position: absolute;
+    top: 70px;
+    right: 30px;
+}
+
+@keyframes snake-move {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(40px, 0);
+    }
+    50% {
+        transform: translate(40px, 40px);
+    }
+    75% {
+        transform: translate(0, 40px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+/* Pong game icon styling */
+.pong-game {
+    background-color: #003366;
+}
+
+.pong-game .paddle {
+    width: 10px;
+    height: 50px;
+    background-color: white;
+    position: absolute;
+}
+
+.pong-game .paddle-left {
+    left: 15px;
+    animation: paddle-move 2s infinite;
+}
+
+.pong-game .paddle-right {
+    right: 15px;
+    top: 40px;
+}
+
+.pong-game .ball {
+    width: 12px;
+    height: 12px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    animation: ball-move 3s infinite linear;
+}
+
+@keyframes paddle-move {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(40px);
+    }
+}
+
+@keyframes ball-move {
+    0% {
+        transform: translate(-20px, -20px);
+    }
+    25% {
+        transform: translate(20px, 20px);
+    }
+    50% {
+        transform: translate(40px, -30px);
+    }
+    75% {
+        transform: translate(-10px, 30px);
+    }
+    100% {
+        transform: translate(-20px, -20px);
+    }
+}
+
+/* Memory game icon styling */
+.memory-game-icon {
+    background-color: #8e44ad;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 8px;
+    padding: 15px;
+}
+
+.memory-game-icon .memory-card {
+    background-color: #9b59b6;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+.memory-game-icon .memory-card.flipped {
+    transform: rotateY(180deg);
+}
+
+.memory-game-icon .memory-card.matched {
+    transform: rotateY(180deg);
+    background-color: white;
+    border: 2px solid #9b59b6;
+}
+
+.memory-game-icon .memory-card.flipped:after {
+    content: '🦊';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+}
+
+.memory-game-icon .memory-card.matched:after {
+    content: '🐶';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+}
+
+/* Coin Toss game icon styling */
+.coin-toss-game {
+    background-color: #34495e;
+    overflow: visible;
+}
+
+.coin-toss-game .coin-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(45deg, #f1c40f, #f39c12);
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    animation: flip-coin 3s infinite;
+}
+
+.coin-toss-game .coin-icon:before {
+    content: 'H';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+@keyframes flip-coin {
+    0%, 100% {
+        transform: rotateY(0);
+    }
+    50% {
+        transform: rotateY(180deg);
+    }
+}
+
+/* Tic Tac Toe game icon styling */
+.tic-tac-toe-game {
+    background-color: #1e272e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.board-icon {
+    width: 80%;
+    height: 80%;
+    background-color: #2d3436;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 4px;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.cell-icon {
+    background-color: #636e72;
+    border-radius: 2px;
+    position: relative;
+}
+
+.cell-icon.x-icon::before,
+.cell-icon.x-icon::after {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 20%;
+    background-color: #00cec9;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 2px;
+}
+
+.cell-icon.x-icon::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.cell-icon.x-icon::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.cell-icon.o-icon::before {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 60%;
+    border: 3px solid #fd79a8;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .container {
+        width: 95%;
+    }
+    
+    .games-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 15px 0;
+        height: auto;
+        min-height: 100vh;
+    }
+    
+    .container {
+        padding: 20px;
+        width: 100%;
+        border-radius: 0;
+    }
+    
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    header p {
+        font-size: 1rem;
+    }
+    
+    .games-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .game-card {
+        padding: 15px;
+    }
+    
+    .game-icon {
+        height: 100px;
+        width: 100px;
+    }
+    
+    .game-card h2 {
+        font-size: 1.3rem;
+    }
+    
+    .game-card p {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 350px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .game-icon {
+        height: 80px;
+        width: 80px;
+    }
+} 

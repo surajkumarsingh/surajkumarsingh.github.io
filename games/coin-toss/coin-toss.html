@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Coin Toss Game - JavaScript Game Collection</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Play Coin Toss game online. Test your luck by guessing heads or tails and see if you can beat the odds. Free browser game, no download needed.">
+    <meta name="keywords" content="coin toss, heads or tails, browser coin toss, javascript coin toss, luck game, probability game">
+    <meta name="author" content="Game Collection Developer">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Coin Toss Game - JavaScript Game Collection">
+    <meta property="og:description" content="Play Coin Toss game online. Test your luck by guessing heads or tails and see if you can beat the odds. Free browser game, no download needed.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.yourgamecollection.com/games/coin-toss/coin-toss.html">
+    <meta property="og:image" content="https://www.yourgamecollection.com/assets/images/coin-toss-game.jpg">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Coin Toss Game - JavaScript Game Collection">
+    <meta name="twitter:description" content="Play Coin Toss game online. Test your luck by guessing heads or tails and see if you can beat the odds. Free browser game, no download needed.">
+    <meta name="twitter:image" content="https://www.yourgamecollection.com/assets/images/coin-toss-game.jpg">
+
+    <!-- Canonical Link -->
+    <link rel="canonical" href="https://www.yourgamecollection.com/games/coin-toss/coin-toss.html">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="coin-toss.css">
+    <link rel="stylesheet" href="../../assets/css/ads.css">
+    <link rel="stylesheet" href="../../assets/css/responsive.css">
+    
+    <!-- JavaScript for SEO and AdSense -->
+    <script src="../../assets/js/meta-tags.js"></script>
+    <script src="../../assets/js/adsense.js"></script>
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>Coin Toss</h1>
+            <div class="score-display">
+                <div class="correct-guesses">Correct: <span id="correct-count">0</span></div>
+                <div class="total-tosses">Total: <span id="total-count">0</span></div>
+            </div>
+        </header>
+        
+        <div class="coin-area">
+            <div class="coin" id="coin">
+                <div class="heads"></div>
+                <div class="tails"></div>
+            </div>
+        </div>
+        
+        <div class="game-controls">
+            <div class="guess-buttons">
+                <button id="heads-btn">Heads</button>
+                <button id="tails-btn">Tails</button>
+            </div>
+            <button id="toss-btn">Toss Coin</button>
+            <button id="reset-btn">Reset Score</button>
+        </div>
+        
+        <div class="result-message" id="result-message">
+            Make a guess and toss the coin!
+        </div>
+        
+        <div class="stats">
+            <div class="stats-row">
+                <span>Accuracy:</span> <span id="accuracy">0%</span>
+            </div>
+            <div class="stats-row">
+                <span>Heads:</span> <span id="heads-count">0</span>
+            </div>
+            <div class="stats-row">
+                <span>Tails:</span> <span id="tails-count">0</span>
+            </div>
+        </div>
+        
+        <a href="../../main.html" class="home-button">◄ Back to Menu</a>
+    </div>
+    
+    <!-- Schema.org structured data for rich results -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Game",
+      "name": "Coin Toss Game",
+      "description": "Play Coin Toss game online. Test your luck by guessing heads or tails and see if you can beat the odds.",
+      "url": "https://www.yourgamecollection.com/games/coin-toss/coin-toss.html",
+      "image": "https://www.yourgamecollection.com/assets/images/coin-toss-game.jpg",
+      "applicationCategory": "Game",
+      "operatingSystem": "Web Browser",
+      "gamePlatform": "Web Browser",
+      "genre": "Casual",
+      "author": {
+        "@type": "Organization",
+        "name": "Game Collection Developer"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+    </script>
+    
+    <script src="coin-toss.js"></script>
+<script src="../../assets/js/mobile-support.js"></script>
+</body>
+</html> 

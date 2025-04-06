@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Tic Tac Toe Game - JavaScript Game Collection</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Play Tic Tac Toe online against AI or with a friend. Classic board game with simple controls and strategy. Free browser game, no download needed.">
+    <meta name="keywords" content="tic tac toe, noughts and crosses, browser tic tac toe, javascript tic tac toe, free tic tac toe game, two player tic tac toe">
+    <meta name="author" content="Game Collection Developer">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Tic Tac Toe Game - JavaScript Game Collection">
+    <meta property="og:description" content="Play Tic Tac Toe online against AI or with a friend. Classic board game with simple controls and strategy. Free browser game, no download needed.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.yourgamecollection.com/games/tic-tac-toe/tic-tac-toe.html">
+    <meta property="og:image" content="https://www.yourgamecollection.com/assets/images/tic-tac-toe-game.jpg">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tic Tac Toe Game - JavaScript Game Collection">
+    <meta name="twitter:description" content="Play Tic Tac Toe online against AI or with a friend. Classic board game with simple controls and strategy. Free browser game, no download needed.">
+    <meta name="twitter:image" content="https://www.yourgamecollection.com/assets/images/tic-tac-toe-game.jpg">
+
+    <!-- Canonical Link -->
+    <link rel="canonical" href="https://www.yourgamecollection.com/games/tic-tac-toe/tic-tac-toe.html">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="tic-tac-toe.css">
+    <link rel="stylesheet" href="../../assets/css/ads.css">
+    <link rel="stylesheet" href="../../assets/css/responsive.css">
+    
+    <!-- JavaScript for SEO and AdSense -->
+    <script src="../../assets/js/meta-tags.js"></script>
+    <script src="../../assets/js/adsense.js"></script>
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>Tic Tac Toe</h1>
+            <div class="score-display">
+                <div class="player-x">X: <span id="x-score">0</span></div>
+                <div class="player-o">O: <span id="o-score">0</span></div>
+                <div class="ties">Ties: <span id="ties">0</span></div>
+            </div>
+        </header>
+        
+        <div class="game-board" id="board">
+            <div class="cell" data-cell-index="0"></div>
+            <div class="cell" data-cell-index="1"></div>
+            <div class="cell" data-cell-index="2"></div>
+            <div class="cell" data-cell-index="3"></div>
+            <div class="cell" data-cell-index="4"></div>
+            <div class="cell" data-cell-index="5"></div>
+            <div class="cell" data-cell-index="6"></div>
+            <div class="cell" data-cell-index="7"></div>
+            <div class="cell" data-cell-index="8"></div>
+        </div>
+        
+        <div class="status-message" id="status">X's turn</div>
+        
+        <div class="game-controls">
+            <div class="game-mode">
+                <label>
+                    <input type="radio" name="mode" value="two-player" checked> Two Players
+                </label>
+                <label>
+                    <input type="radio" name="mode" value="ai"> vs AI
+                </label>
+            </div>
+            <button id="reset-btn">New Game</button>
+            <button id="reset-score-btn">Reset Score</button>
+        </div>
+        
+        <div class="settings">
+            <div class="difficulty" id="difficulty-container">
+                <label>AI Difficulty:</label>
+                <select id="difficulty">
+                    <option value="easy">Easy</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+            
+            <div class="first-move">
+                <label>First Move:</label>
+                <select id="first-move">
+                    <option value="x" selected>X (Player 1)</option>
+                    <option value="o">O (Player 2/AI)</option>
+                    <option value="random">Random</option>
+                </select>
+            </div>
+        </div>
+        
+        <a href="../../main.html" class="home-button">◄ Back to Menu</a>
+    </div>
+    
+    <!-- Schema.org structured data for rich results -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Game",
+      "name": "Tic Tac Toe Game",
+      "description": "Play Tic Tac Toe online against AI or with a friend. Classic board game with simple controls and strategy.",
+      "url": "https://www.yourgamecollection.com/games/tic-tac-toe/tic-tac-toe.html",
+      "image": "https://www.yourgamecollection.com/assets/images/tic-tac-toe-game.jpg",
+      "applicationCategory": "Game",
+      "operatingSystem": "Web Browser",
+      "gamePlatform": "Web Browser",
+      "genre": "Board Game",
+      "numberOfPlayers": {
+        "@type": "QuantitativeValue",
+        "minValue": 1,
+        "maxValue": 2
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Game Collection Developer"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+    </script>
+    
+    <script src="tic-tac-toe.js"></script>
+</body>
+</html> 

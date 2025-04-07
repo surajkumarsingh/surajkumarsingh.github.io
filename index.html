@@ -57,9 +57,114 @@
             color: white;
             text-decoration: underline;
         }
+        
+        /* Space disturbance elements */
+        .space-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .space-element {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0.7;
+            z-index: -1;
+        }
+        
+        .container {
+            position: relative;
+            z-index: 1;
+            background-color: rgba(0, 0, 0, 0.7);
+            max-width: 900px;
+            width: 90%;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+        
+        .star {
+            background-color: white;
+            border-radius: 50%;
+            box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.4);
+            animation: twinkle 4s infinite alternate, float-across var(--float-time) linear forwards;
+        }
+        
+        .planet {
+            border-radius: 50%;
+            animation: rotate 20s linear infinite, float-across var(--float-time) linear forwards;
+        }
+        
+        .comet {
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.7) 40%, rgba(255, 255, 255, 0));
+            border-radius: 50px;
+            transform: rotate(-45deg);
+            animation: float-across var(--float-time) linear forwards;
+        }
+        
+        .satellite {
+            width: 30px;
+            height: 12px;
+            background-color: #95a5a6;
+            border-radius: 3px;
+            position: relative;
+            animation: float-across var(--float-time) linear forwards, wobble 5s ease-in-out infinite;
+        }
+        
+        .satellite::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 6px;
+            background-color: #7f8c8d;
+            border-radius: 2px;
+            top: 3px;
+            left: -15px;
+        }
+        
+        .satellite::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 6px;
+            background-color: #7f8c8d;
+            border-radius: 2px;
+            top: 3px;
+            right: -15px;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.8; }
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes float-across {
+            0% { transform: translateX(-5vw); }
+            100% { transform: translateX(105vw); }
+        }
+        
+        @keyframes wobble {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
     </style>
 </head>
 <body>
+    <!-- Space background elements -->
+    <div class="space-background" id="space-background">
+        <!-- Elements will be added by JavaScript -->
+    </div>
+    
     <div class="container">
         <header>
             <h1>JavaScript Game Collection</h1>
@@ -157,6 +262,172 @@
         "query-input": "required name=search_term_string"
       }
     }
+    </script>
+    
+    <!-- Space animation script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const spaceBackground = document.getElementById('space-background');
+            
+            // Configuration
+            const config = {
+                stars: {
+                    count: 15,
+                    sizes: [2, 3, 4, 5],
+                    speedRange: [60, 100]
+                },
+                planets: {
+                    count: 3,
+                    colors: ['#3498db', '#e74c3c', '#f1c40f', '#2ecc71', '#9b59b6'],
+                    sizeRange: [20, 60],
+                    speedRange: [120, 180]
+                },
+                comets: {
+                    count: 2,
+                    sizeRange: [30, 60],
+                    speedRange: [10, 30]
+                },
+                satellites: {
+                    count: 1,
+                    speedRange: [40, 80]
+                }
+            };
+            
+            // Create space elements
+            function createSpaceElements() {
+                // Create stars
+                for (let i = 0; i < config.stars.count; i++) {
+                    createStar();
+                }
+                
+                // Create planets
+                for (let i = 0; i < config.planets.count; i++) {
+                    createPlanet();
+                }
+                
+                // Create comets
+                for (let i = 0; i < config.comets.count; i++) {
+                    createComet();
+                }
+                
+                // Create satellites
+                for (let i = 0; i < config.satellites.count; i++) {
+                    createSatellite();
+                }
+            }
+            
+            function createStar() {
+                const star = document.createElement('div');
+                star.className = 'space-element star';
+                
+                // Random size
+                const size = config.stars.sizes[Math.floor(Math.random() * config.stars.sizes.length)];
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                
+                // Random position
+                const topPos = Math.random() * window.innerHeight;
+                star.style.top = `${topPos}px`;
+                
+                // Random speed
+                const speed = randomBetween(config.stars.speedRange[0], config.stars.speedRange[1]);
+                star.style.setProperty('--float-time', `${speed}s`);
+                
+                spaceBackground.appendChild(star);
+                
+                // Remove element after animation completes
+                setTimeout(() => {
+                    star.remove();
+                    createStar(); // Create a new star
+                }, speed * 1000);
+            }
+            
+            function createPlanet() {
+                const planet = document.createElement('div');
+                planet.className = 'space-element planet';
+                
+                // Random size
+                const size = randomBetween(config.planets.sizeRange[0], config.planets.sizeRange[1]);
+                planet.style.width = `${size}px`;
+                planet.style.height = `${size}px`;
+                
+                // Random color
+                const color = config.planets.colors[Math.floor(Math.random() * config.planets.colors.length)];
+                planet.style.backgroundColor = color;
+                
+                // Random position
+                const topPos = Math.random() * window.innerHeight;
+                planet.style.top = `${topPos}px`;
+                
+                // Random speed
+                const speed = randomBetween(config.planets.speedRange[0], config.planets.speedRange[1]);
+                planet.style.setProperty('--float-time', `${speed}s`);
+                
+                spaceBackground.appendChild(planet);
+                
+                // Remove element after animation completes
+                setTimeout(() => {
+                    planet.remove();
+                    createPlanet(); // Create a new planet
+                }, speed * 1000);
+            }
+            
+            function createComet() {
+                const comet = document.createElement('div');
+                comet.className = 'space-element comet';
+                
+                // Random size
+                const width = randomBetween(config.comets.sizeRange[0], config.comets.sizeRange[1]);
+                const height = width * 0.2;
+                comet.style.width = `${width}px`;
+                comet.style.height = `${height}px`;
+                
+                // Random position
+                const topPos = Math.random() * window.innerHeight;
+                comet.style.top = `${topPos}px`;
+                
+                // Random speed
+                const speed = randomBetween(config.comets.speedRange[0], config.comets.speedRange[1]);
+                comet.style.setProperty('--float-time', `${speed}s`);
+                
+                spaceBackground.appendChild(comet);
+                
+                // Remove element after animation completes
+                setTimeout(() => {
+                    comet.remove();
+                    createComet(); // Create a new comet
+                }, speed * 1000);
+            }
+            
+            function createSatellite() {
+                const satellite = document.createElement('div');
+                satellite.className = 'space-element satellite';
+                
+                // Random position
+                const topPos = Math.random() * window.innerHeight;
+                satellite.style.top = `${topPos}px`;
+                
+                // Random speed
+                const speed = randomBetween(config.satellites.speedRange[0], config.satellites.speedRange[1]);
+                satellite.style.setProperty('--float-time', `${speed}s`);
+                
+                spaceBackground.appendChild(satellite);
+                
+                // Remove element after animation completes
+                setTimeout(() => {
+                    satellite.remove();
+                    createSatellite(); // Create a new satellite
+                }, speed * 1000);
+            }
+            
+            // Helper function for random number between range
+            function randomBetween(min, max) {
+                return min + Math.random() * (max - min);
+            }
+            
+            // Initialize space elements
+            createSpaceElements();
+        });
     </script>
 </body>
 </html> 

@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function insertAdContainers() {
         const currentPath = window.location.pathname;
         
-        // Don't show ads on the main menu to keep it clean
-        if (currentPath.includes('index.html')) {
+        // Special handling for the main page (index)
+        if (currentPath.includes('index.html') || currentPath.endsWith('/') || currentPath.split('/').pop() === '') {
             insertFooterAd();
             return;
         }
